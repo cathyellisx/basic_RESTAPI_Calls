@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { GetInformationService } from './_services';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tester';
+  info: any = {};
+
+  constructor(private httpClient: HttpClient, private getInformation: GetInformationService) {}
+
+  get_info($event): void {
+    this.getInformation.getInfo().subscribe((res) => {
+      this.info = res;
+    });
+  }
+
 }
