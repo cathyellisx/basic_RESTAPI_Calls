@@ -1,6 +1,8 @@
-<div class="row">
-  <div class="col mx-auto">
-    <app-btn-comp (passGetInfo)="get_info($event)"></app-btn-comp>
-    <app-tester [passInfo]="info"></app-tester>
+<app-header></app-header>
+<div class="container pt-5 mt-5">
+  <div class="row">
+    <div class="col mx-auto">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GetInformationService } from '../_services';
 
 @Component({
   selector: 'app-tester',
@@ -6,11 +7,16 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./tester.component.css']
 })
 export class TesterComponent implements OnInit {
-  @Input() passInfo: any = {};
+  information: any = {};
 
-  constructor() { }
+  constructor( private displayInfo : GetInformationService ) {}
 
   ngOnInit() {
+    this.displayInformation();
+  }
+
+  displayInformation() {
+    this.information = this.displayInfo.passInfo;
   }
 
 }
